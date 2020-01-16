@@ -1,0 +1,6 @@
+# ...
+RUN    mkdir /opt/certs
+RUN   chown -R nifi:nifi /opt/certs
+
+USER nifi
+# ...
