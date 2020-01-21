@@ -1,11 +1,11 @@
 version: '3.3'
 services:
     nifi:
-        container_name: nifilab
+        container_name: nifidev
         image: apache/nifi:1.9.1
         user: root 
         volumes:
-                - /home/starlord/Documents/Projetos/NiFI/docker/certs:/opt/certs
+                - /opt/certs:/opt/certs
         ports:
                 - 8443:8443 # Unsecured HTTP Web Port
         environment:
@@ -16,12 +16,12 @@ services:
             - TRUSTSTORE_PATH=/opt/certs/truststore.jks
             - TRUSTSTORE_PASSWORD=123456
             - TRUSTSTORE_TYPE=JKS
-            - INITIAL_ADMIN_IDENTITY='welington.andrade'
+            - INITIAL_ADMIN_IDENTITY=''
             - LDAP_AUTHENTICATION_STRATEGY='SIMPLE' 
-            - LDAP_MANAGER_DN='CN=nifi,CN=Users,DC=netmaster,DC=intra'
-            - LDAP_MANAGER_PASSWORD='N1fi123'
-            - LDAP_USER_SEARCH_BASE='DC=netmaster,DC=intra'
+            - LDAP_MANAGER_DN=''
+            - LDAP_MANAGER_PASSWORD=''
+            - LDAP_USER_SEARCH_BASE=''
             - LDAP_USER_SEARCH_FILTER='cn={0}'
             - LDAP_IDENTITY_STRATEGY='USE_USERNAME'
-            - LDAP_URL='ldap://luckman01.netmaster.intra:389'
+            - LDAP_URL=''
             - TZ=America/Sao_Paulo
