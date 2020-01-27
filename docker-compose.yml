@@ -9,7 +9,7 @@ services:
         ports:
                 - 8443:8443 # Unsecured HTTP Web Port
         environment:
-            - AUTH=SIMPLE
+            - AUTH=ldap
             - KEYSTORE_PATH=/opt/certs/keystore.jks
             - KEYSTORE_TYPE=JKS
             - KEYSTORE_PASSWORD=123456
@@ -17,11 +17,11 @@ services:
             - TRUSTSTORE_PASSWORD=123456
             - TRUSTSTORE_TYPE=JKS
             - INITIAL_ADMIN_IDENTITY=''
-            - LDAP_AUTHENTICATION_STRATEGY='SIMPLE' 
+            - LDAP_AUTHENTICATION_STRATEGY=SIMPLE 
             - LDAP_MANAGER_DN=''
             - LDAP_MANAGER_PASSWORD=''
             - LDAP_USER_SEARCH_BASE=''
             - LDAP_USER_SEARCH_FILTER='cn={0}'
-            - LDAP_IDENTITY_STRATEGY='USE_USERNAME'
+            - LDAP_IDENTITY_STRATEGY=USE_USERNAME
             - LDAP_URL=''
             - TZ=America/Sao_Paulo
